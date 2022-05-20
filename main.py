@@ -3,6 +3,8 @@ import flask_wtf
 from flask_bootstrap import Bootstrap
 from form import MyForm
 
+# test comment
+
 app = Flask(__name__)
 
 app.secret_key = 'adkfjalsdjf'
