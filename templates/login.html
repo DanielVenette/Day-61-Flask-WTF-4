@@ -1,0 +1,27 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+	<div class="container">
+		<h1>Login</h1>
+        <!-- This is where our form will go. -->
+<!--			novalidate turns off browser validation so that we can use WTF validation.  must include validate_on_submit in main.py-->
+			<form method="POST" action="{{ url_for('login') }}" novalidate>
+				{{ myform.csrf_token }}
+				<p>
+					{{ myform.email.label }} <br> {{ myform.email(size=30) }}
+					{% for err in myform.email.errors %}
+					<span style="color:red">{{ err }}</span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ myform.password.label }} <br> {{ myform.password(size=30) }}
+					{% for err in myform.password.errors %}
+					<span style="color:red">{{ err }}</span>
+					{% endfor %}
+				</p>
+				<p>
+					{{ myform.submit }}
+				</p>
+			</form>
+        </div>
+{% endblock %}
